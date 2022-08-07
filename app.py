@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from models import db, StudentModel
+import os
 
 app = Flask(__name__)
 
@@ -92,4 +93,4 @@ def update(id):
 
 
 
-app.run(host = 'localhost', port=5000)
+app.run(port=os.environ.get("PORT", 5000), host='0.0.0.0', debug=False)
